@@ -6,6 +6,17 @@ canbus cbus;
 
 TFT_eSPI tft = TFT_eSPI();
 
+void updateScreen() {
+  
+  tft.fillScreen(TFT_BLACK);
+  tft.setCursor(0,0,4);
+  tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  tft.printf("RPM: %i\n", cbus.rpm);
+  tft.printf("VIT: %i\n", cbus.speed);
+  tft.printf("TPS: %i\n", cbus.tps);
+
+}
+
 void setup() {
   Serial.begin(115200);
   
@@ -13,14 +24,23 @@ void setup() {
 
   tft.init();
 
-  sleep(1);
+ 
   Serial.println("Setup Complete !");
 
+  tft.fillScreen(TFT_BLACK);
+  tft.setCursor(6,50,4);
+  tft.setTextColor(TFT_RED, TFT_BLACK);
+  tft.println("DUCATI");
+
+  sleep(3);
+
+  
 }
 
 void loop() {
 
   cbus.refreshDatas();
+  updateScreen();
 
   delay(200);
 
