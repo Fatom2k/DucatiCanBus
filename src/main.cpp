@@ -37,11 +37,19 @@ void setup() {
   
 }
 
+int refreshCnt=0;
+
 void loop() {
 
   cbus.refreshDatas();
-  updateScreen();
+  
+  if(refreshCnt>10){
+    updateScreen();
+    refreshCnt=0;
+  }
 
-  delay(200);
+  refreshCnt++;
+
+  delay(1);
 
 }
