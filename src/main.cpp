@@ -28,12 +28,13 @@ void setup() {
   Serial.println("Setup Complete !");
 
   tft.fillScreen(TFT_BLACK);
-  tft.setCursor(6,50,4);
+  tft.setCursor(20,100,4);
   tft.setTextColor(TFT_RED, TFT_BLACK);
   tft.println("DUCATI");
 
   sleep(3);
 
+  updateScreen();
   
 }
 
