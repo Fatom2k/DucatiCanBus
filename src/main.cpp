@@ -8,7 +8,13 @@ TFT_eSPI tft = TFT_eSPI();
 
 void updateScreen() {
   
-  tft.fillScreen(TFT_BLACK);
+  //tft.fillScreen(TFT_BLACK);
+  tft.setCursor(0,0,4);
+  tft.setTextColor(TFT_BLACK, TFT_BLACK);
+  tft.printf("                                            \n");
+  tft.printf("VIT: 00000\n");
+  tft.printf("                                            \n");
+
   tft.setCursor(0,0,4);
   tft.setTextColor(TFT_WHITE, TFT_BLACK);
   tft.printf("RPM: %i\n", cbus.rpm);
